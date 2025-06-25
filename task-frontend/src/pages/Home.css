@@ -1,0 +1,422 @@
+.home-container {
+  max-width: 960px;
+  margin: 60px auto 100px;
+  padding: 40px 40px 60px;
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  border-radius: 28px;
+  box-shadow:
+    inset 8px 8px 15px rgba(255, 255, 255, 0.8),
+    inset -8px -8px 20px rgba(0, 0, 0, 0.15),
+    6px 6px 25px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInScale 0.7s ease forwards;
+  user-select: none;
+}
+.logout-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 12px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.5s ease;
+}
+
+.logout-btn:disabled {
+  cursor: not-allowed;
+}
+
+.logout-btn.logging-out {
+  background-color: #2ecc71;
+  transform: scale(1.2) rotate(10deg);
+  opacity: 0.8;
+  font-size: 22px;
+}
+
+
+/* ===== Logout Button with pulse animation ===== */
+.home-container > button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  font-weight: 800;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: none;
+  background: #ff3c3c;
+  color: white;
+  cursor: pointer;
+  box-shadow:
+    0 0 10px #ff3c3c,
+    0 0 20px #ff3c3c88,
+    0 0 30px #ff3c3c55;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+  animation: pulseGlow 2.5s infinite ease-in-out;
+  z-index: 10;
+}
+
+.home-container > button:hover {
+  background: #e32e2e;
+  box-shadow:
+    0 0 20px #e32e2e,
+    0 0 30px #e32e2eaa,
+    0 0 40px #e32e2ecc;
+  transform: scale(1.1);
+  animation-play-state: paused;
+}
+
+/* ===== Heading with gradient text and shadow ===== */
+h2 {
+  font-weight: 900;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(90deg, #000000, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    1px 1px 2px rgba(74, 144, 226, 0.4),
+    0 0 8px rgba(79, 172, 254, 0.7);
+  user-select: text;
+}
+
+/* ===== Search input with neumorphism + focus glow ===== */
+.search-input {
+  font-size: 1.15rem;
+  padding: 16px 22px;
+  border-radius: 18px;
+  border: none;
+  outline: none;
+  background: #f0f0f3;
+  box-shadow:
+    7px 7px 15px #bebebe,
+    -7px -7px 20px #ffffff;
+  color: #444;
+  transition: box-shadow 0.35s ease, background 0.35s ease;
+  width: 100%;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+  font-style: italic;
+  letter-spacing: 0.3px;
+}
+
+.search-input:focus {
+  background: #e8f0fe;
+  box-shadow:
+    0 0 10px #000000,
+    inset 3px 3px 6px #b4d1ff,
+    inset -3px -3px 6px #fff;
+  color: #1a1a1a;
+}
+
+/* ===== Search Button with ripple effect ===== */
+button {
+  font-weight: 700;
+  user-select: none;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  padding: 16px 34px;
+  background: linear-gradient(135deg, #4facfe, #1a73e8);
+  color: white;
+  box-shadow:
+    0 6px 18px #1a73e8bb;
+  font-size: 1.1rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.35s ease;
+}
+
+button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120%;
+  height: 120%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+button:active::after {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  transition: 0s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #1a73e8, #4facfe);
+  box-shadow:
+    0 8px 26px #1a73e8dd;
+  transform: scale(1.1);
+}
+
+/* ===== Progress Bar with floating shadow and smooth animation ===== */
+.progress-bar {
+  background: #f0f0f3;
+  border-radius: 40px;
+  height: 36px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  box-shadow:
+    8px 8px 15px #bebebe,
+    -8px -8px 20px #ffffff;
+  border: 1.5px solid #d0d5dd;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 40px;
+  white-space: nowrap;
+  user-select: none;
+  background: linear-gradient(90deg, #05ff9f, #05cb33);
+  box-shadow: 0 0 20px #4facfecc;
+  animation: progressGrow 1.2s ease forwards;
+  transition: box-shadow 0.3s ease;
+}
+
+.progress:hover {
+  box-shadow: 0 0 28px #4facfeee;
+}
+
+/* ===== Task list grid with cool gap and fade-in ===== */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(320px,1fr));
+  gap: 28px;
+  animation: fadeIn 0.9s ease forwards;
+}
+
+/* ===== Task card with neumorphic + glass blur, subtle floating and fade ===== */
+.task-item {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 28px;
+  padding: 26px 32px;
+  box-shadow:
+    8px 8px 24px rgba(0, 0, 0, 0.06),
+    -8px -8px 24px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 260px;
+  position: relative;
+  opacity: 0;
+  animation: fadeSlideIn 0.7s forwards;
+  animation-delay: var(--delay);
+}
+
+.task-item:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow:
+    12px 12px 40px rgba(0, 0, 0, 0.12),
+    -12px -12px 40px rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+}
+
+/* ===== Task title with glowing highlight ===== */
+.task-item h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 14px;
+  color: #0f213add;
+  text-shadow: 1px 1px 3px rgba(79, 172, 254, 0.75);
+  user-select: text;
+}
+
+.task-item mark {
+  background: #fff9b3aa;
+  color: #443c11;
+  border-radius: 8px;
+  padding: 0 8px;
+  font-weight: 900;
+  box-shadow: 0 0 10px #fff9b3cc;
+}
+
+/* ===== Task details styling ===== */
+.task-item p {
+  margin: 8px 0;
+  font-size: 1.05rem;
+  color: #333;
+  flex-grow: 1;
+  user-select: none;
+}
+
+/* ===== Actions container with smooth spacing ===== */
+.task-actions,
+.task-item > a {
+  display: flex;
+  gap: 18px;
+  margin-top: 22px;
+  justify-content: flex-start;
+}
+
+/* ===== View Details button with neon glow ===== */
+.view-btn {
+  background: linear-gradient(135deg, #4facfe, #1a73e8);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 28px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 8px 26px #1a73e8cc,
+    0 0 12px #4facfecc;
+  transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.view-btn:hover {
+  background: linear-gradient(135deg, #1a73e8, #4facfe);
+  transform: scale(1.12);
+  box-shadow:
+    0 12px 32px #1a73e8dd,
+    0 0 20px #4facfeee;
+}
+
+/* ===== Edit & Delete buttons with fancy shadows ===== */
+.task-actions button {
+  border-radius: 28px;
+  padding: 12px 26px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.25s ease, box-shadow 0.35s ease;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+  color: white;
+  user-select: none;
+}
+
+.task-actions button:hover {
+  transform: scale(1.15);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.task-actions button:active {
+  transform: scale(0.95);
+  box-shadow: none;
+}
+
+.task-actions button:first-child {
+  background: #3498db;
+  box-shadow: 0 6px 20px #2980b9aa;
+}
+
+.task-actions button.delete-btn {
+  background: #ff3c3c;
+  box-shadow: 0 6px 20px #e63931aa;
+}
+
+.task-actions button.delete-btn:hover {
+  background: #d62e2e;
+  box-shadow: 0 8px 26px #d62e2ecc;
+}
+
+/* ===== No tasks message with subtle bounce ===== */
+.no-tasks {
+  font-size: 1.4rem;
+  color: #777;
+  margin-top: 60px;
+  text-align: center;
+  font-style: italic;
+  user-select: none;
+  animation: bounceFade 2.5s ease-in-out infinite alternate;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 10px #ff3c3c,
+      0 0 20px #ff3c3c88,
+      0 0 30px #ff3c3c55;
+  }
+  50% {
+    box-shadow:
+      0 0 18px #ff3c3c,
+      0 0 28px #ff3c3caa,
+      0 0 38px #ff3c3c77;
+  }
+}
+
+@keyframes progressGrow {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceFade {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-8px);
+    opacity: 0.7;
+  }
+}
